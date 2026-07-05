@@ -2,6 +2,8 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: munnich
+      url-base: https://github.com/nmunnich
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -30,5 +32,9 @@ manifest:
           - openthread
           - edtt
           - trusted-firmware-m
+    - name: zmk-apiaster-module
+      remote: munnich
+      revision: main
+      import: config/west.yml
   self:
     path: config

@@ -8,35 +8,58 @@
     };
   };
 
-  outputs = { self, nixpkgs, zmk-nix }: let
-    forAllSystems = nixpkgs.lib.genAttrs (nixpkgs.lib.attrNames zmk-nix.packages);
-  in {
-    packages = forAllSystems (system: rec {
-      default = firmware;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      zmk-nix,
+    }:
+    let
+      forAllSystems = nixpkgs.lib.genAttrs (nixpkgs.lib.attrNames zmk-nix.packages);
+    in
+    {
+      packages = forAllSystems (system: rec {
+        default = apiaster;
 
-      firmware = zmk-nix.legacyPackages.${system}.buildSplitKeyboard {
-        name = "firmware";
+        apiaster = zmk-nix.legacyPackages.${system}.buildKeyboard {
+          name = "apiaster";
 
-        src = nixpkgs.lib.sourceFilesBySuffices self [ ".board" ".cmake" ".conf" ".defconfig" ".dts" ".dtsi" ".json" ".keymap" ".overlay" ".shield" ".yml" "_defconfig" ];
+          src = nixpkgs.lib.sourceFilesBySuffices self [
+            ".board"
+            ".cmake"
+            ".conf"
+            ".defconfig"
+            ".dts"
+            ".dtsi"
+            ".json"
+            ".keymap"
+            ".overlay"
+            ".shield"
+            ".yml"
+            "_defconfig"
+          ];
 
-        board = "nice_nano_v2";
-        shield = "lily58_%PART%";
+          board = "rp2040_zero";
+          shield = "apiaster_wired";
+          enableZmkStudio = true;
 
-        zephyrDepsHash = "sha256-F03oJNHWmHlpFc1JHyvqX02WL+Pg6ZcNWpCaiDfJANA=";
+          zephyrDepsHash = "sha256-D5P3PAT6GmRBZR5Fs7+K+GXOKEKuBz10ePw9wpG8LSM=";
 
-        meta = {
-          description = "ZMK firmware";
-          license = nixpkgs.lib.licenses.mit;
-          platforms = nixpkgs.lib.platforms.all;
+          meta = {
+            description = "ZMK firmware";
+            license = nixpkgs.lib.licenses.mit;
+            platforms = nixpkgs.lib.platforms.all;
+          };
         };
-      };
 
-      flash = zmk-nix.packages.${system}.flash.override { inherit firmware; };
-      update = zmk-nix.packages.${system}.update;
-    });
+        flashApiaster = (import nixpkgs { localSystem = system; }).callPackage ./flash-automount.nix {
+          firmware = apiaster;
+        };
+        update = zmk-nix.packages.${system}.update;
+      });
 
-    devShells = forAllSystems (system: {
-      default = zmk-nix.devShells.${system}.default;
-    });
-  };
+      devShells = forAllSystems (system: {
+        default = zmk-nix.devShells.${system}.default;
+      });
+    };
 }
