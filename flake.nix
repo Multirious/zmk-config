@@ -41,7 +41,7 @@
 
           board = "rp2040_zero";
           shield = "apiaster_wired";
-          enableZmkStudio = true;
+          # enableZmkStudio = true;
 
           zephyrDepsHash = "sha256-D5P3PAT6GmRBZR5Fs7+K+GXOKEKuBz10ePw9wpG8LSM=";
 
