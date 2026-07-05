@@ -2,8 +2,12 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: munnich
+    - name: munnich # # For apiaster
       url-base: https://github.com/nmunnich
+    - name: zzeneg # For KeyPeek, provides Raw HID module
+      url-base: https://github.com/zzeneg
+    - name: srwi # For KeyPeek
+      url-base: https://github.com/srwi
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -34,7 +38,13 @@ manifest:
           - trusted-firmware-m
     - name: zmk-apiaster-module
       remote: munnich
-      revision: main
+      revision: 4279902af1c2130ab1a2ec23e916239b090780ff
       import: config/west.yml
+    - name: zmk-raw-hid
+      remote: zzeneg
+      revision: e25e325adc90fccb60cc08393b8c2b0ba6d647c7
+    - name: zmk-keypeek-layer-notifier
+      remote: srwi
+      revision: ad688638517baf527e66a20596aa152cb42a1cd4
   self:
     path: config

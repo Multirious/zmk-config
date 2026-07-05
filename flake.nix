@@ -40,10 +40,10 @@
           ];
 
           board = "rp2040_zero";
-          shield = "apiaster_wired";
-          # enableZmkStudio = true;
+          shield = "apiaster_wired raw_hid_adapter";
+          enableZmkStudio = true;
 
-          zephyrDepsHash = "sha256-D5P3PAT6GmRBZR5Fs7+K+GXOKEKuBz10ePw9wpG8LSM=";
+          zephyrDepsHash = "sha256-dJ6ajbQIiMW/Zss3zuskCdnhbLStQBrRxNysb0CCF7c=";
 
           meta = {
             description = "ZMK firmware";
