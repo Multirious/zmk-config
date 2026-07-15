@@ -54,12 +54,6 @@
 
         graphite_layer {
             display-name = "graphite";
-// ------------------------------------------------------------------------------------------------------------
-//         |   1   |   2   |    3    |   4    |   5   |              |  6  |   7    |    8    |   9   |   0   |       
-//         |   B   |   L   |    D    |   W    |   Z   |              |  '  |   F    |    O    |   U   |   J   |        
-// |  TAB  | ALT/N | GUI/R | SHIFT/T | CTRL/S |   G   |              |  Y  | CTRL/H | SHIFT/A | GUI/E | ALT/I | ENTER |
-// |   \   |   Q   |   X   |    M    |   C    |   V   |              |  K  |   P    |    ,    |   .   |   -   |   /   |
-//                                   | LOWER  | SPACE | ESC |  | DEL |BACK | RAISE  | 
             bindings = <
           &kp N1     &kp N2     &kp N3      &kp N4      &kp N5                      &kp N6    &kp N7      &kp N8      &kp N9     &kp N0
           &kp B      &kp L      &kp D       &kp W       &kp Z                       &kp SQT     &kp F       &kp O       &kp U    &kp J
@@ -71,12 +65,6 @@
 
         qwerty_layer {
             display-name = "qwerty";
-// ------------------------------------------------------------------------------------------------------------
-//         |   1   |   2   |    3    |   4    |   5   |              |  6  |   7    |    8    |   9   |   0   |       
-//         |   Q   |   W   |    E    |   R    |   T   |              |  Y  |   U    |    I    |   O   |   P   |        
-// |  TAB  | ALT/A | GUI/S | SHIFT/D | CTRL/F |   G   |              |  H  | CTRL/J | SHIFT/K | GUI/L | ALT/; | ENTER |
-// |   \   |   Z   |   X   |    C    |   V    |   B   |              |  N  |   M    |    ,    |   .   |   /   |   '   |
-//                                   | LOWER  | SPACE | ESC |  | DEL |BACK | RAISE  | 
             bindings = <
           &kp N1     &kp N2     &kp N3      &kp N4      &kp N5                      &kp N6    &kp N7      &kp N8      &kp N9     &kp N0
           &kp Q      &kp W      &kp E       &kp R       &kp T                       &kp Y     &kp U       &kp I       &kp O      &kp P
@@ -121,12 +109,6 @@
 
         lower_layer {
             display-name = "lower";
-// ------------------------------------------------------------------------------------------------------------
-// |       |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6  |  F7   |  F8   |  F9  |  F10  |       |
-// |       |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |       |
-// |   `   |  !  |  @  |  #   |  $   |  %   |                   |  ^   |  &    |  *    |  (   |   )   |  F11  |
-// |   |   |  =  |  -  |  +   |  {   |  }   |                   |  [   |  ]    |  ;    |  :   |   \   |  F12  |
-//               |     |      |      |      |        |  |       |      |       |       |      |
             bindings = <
          &kp F2        &kp F3      &kp F4         &kp F5         &kp F6                  &kp F7    &kp F8         &kp F9          &kp F10       &kp F11   
          &kp N1        &kp N2      &kp N3         &kp N4         &kp N5                  &kp N6    &kp N7         &kp N8          &kp N9        &kp N0    
@@ -138,12 +120,6 @@
 
         raise_layer {
             display-name = "raise";
-// ------------------------------------------------------------------------------------------------------------
-//         | MUTE | VOL+   |  VOL-   | BRI+        |  BRI-  |                |  BT 0 | BT 1 |  BT 2   | BT 3 | BT 4 | 
-//         | PREV | REWIND | PAUSE   | FASTFORWARD |  NEXT  |                | PGUP  | HOME |   ^     | END  |      |       
-// |       | LALT | LGUI   | LSHFT   | LCTRL       | studio |                | PGDN  |   <- |   v     |  ->  |      |      |
-// |       |      | WASD   | QWERTY  | BASE        |        |                | CAPS  | INS  | PRNTSCR |      |      |      |
-//                                   |             |        |      |  |      |       |      |
             bindings = <
           &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_BRI_DN &kp C_BRI_UP                 &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
           &trans     &trans       &trans       &trans       &trans                       &kp PG_UP    &kp HOME     &kp UP       &kp END      &kp INS
