@@ -6,9 +6,10 @@
 #define QWERTY 1
 #define WASD 2
 #define EXTRA_WASD 3
-#define KEYPAD 4
-#define LOWER 5
-#define RAISE 6
+#define ARROW 4
+#define KEYPAD 5
+#define LOWER 6
+#define RAISE 7
 
 #define KEYS_L 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 25 32 33 34 35 36 37
 #define KEYS_R 5 6 7 8 9 15 16 17 18 19 26 27 28 29 30 31 38 39 40 41 42 43
@@ -21,7 +22,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <280>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <175>;                // repeat on tap-into-hold
             require-prior-idle-ms = <20>;
             bindings = <&kp>, <&kp>;
@@ -33,7 +34,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <280>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <175>;                // repeat on tap-into-hold
             require-prior-idle-ms = <20>;
             bindings = <&kp>, <&kp>;
@@ -88,11 +89,22 @@
         extra_wasd_layer {
             display-name = "wasd-gaming-extra";
             bindings = <
-          &trans     &trans   &trans   &kp Y    &kp H                  &trans    &trans  &trans  &trans  &trans  
-          &trans     &trans   &trans   &trans   &kp T                  &trans    &trans  &trans  &trans  &trans  
-&kp LALT  &trans     &trans   &trans   &trans   &kp G                  &trans    &trans  &trans  &trans  &trans   &trans  
-&trans    &trans     &trans   &trans   &trans   &kp B                  &trans    &trans  &trans  &trans  &trans   &trans  
+          &kp N6     &kp N7   &kp N8   &kp N9   &kp N0                 &trans    &trans  &trans  &trans  &trans  
+          &trans     &trans   &kp U    &kp Y    &kp T                  &trans    &trans  &trans  &trans  &trans  
+&kp LALT  &trans     &trans   &kp J    &kp H    &kp G                  &trans    &trans  &trans  &trans  &trans   &trans  
+&trans    &trans     &trans   &kp M    &kp N    &kp B                  &trans    &trans  &trans  &trans  &trans   &trans  
                                        &trans   &trans  &trans  &trans &trans    &trans
+            >;
+        };
+
+        arrow_layer {
+            display-name = "arrow-gaming";
+            bindings = <
+          &kp N1     &kp N2   &kp N3   &kp N4   &kp N5                           &kp N6    &kp N7    &kp N8   &kp N9    &kp N0 
+          &kp N6     &kp Q    &kp W    &kp E    &kp R                            &trans    &trans    &kp UP   &trans    &trans
+&kp TAB   &kp LSHFT  &kp A    &kp S    &kp D    &kp F                            &trans    &kp LEFT  &kp DOWN &kp RIGHT &trans &kp ENTER
+&kp ESC   &kp LCTRL  &kp Z    &kp X    &kp C    &kp V                            &trans    &trans    &trans   &trans    &trans &trans
+                                       &trans   &kp SPACE &kp LALT &kp DEL &kp BSPC  &mo RAISE
             >;
         };
 
@@ -123,8 +135,8 @@
             bindings = <
           &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_BRI_DN &kp C_BRI_UP                 &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
           &trans     &trans       &trans       &trans       &trans                       &kp PG_UP    &kp HOME     &kp UP       &kp END      &kp INS
-&kp CLCK  &kp LALT   &kp LGUI     &kp LSHFT    &kp LCTRL    &studio_unlock               &kp PG_DN    &kp LEFT     &kp DOWN     &kp RIGHT    &kp PSCRN    &sys_reset
-&trans    &to KEYPAD &to WASD     &to QWERTY   &to BASE     &trans                       &trans       &trans       &trans       &trans       &trans       &bootloader
+&kp CLCK  &kp LALT   &kp LGUI     &kp LSHFT    &kp LCTRL    &studio_unlock               &kp PG_DN    &kp LEFT     &kp DOWN     &kp RIGHT    &kp PSCRN    &kp ENTER
+&trans    &to KEYPAD &to WASD     &to QWERTY   &to BASE     &to ARROW                    &trans       &trans       &trans       &trans       &trans       &bootloader
                                                &trans       &trans         &trans &trans &trans       &trans 
             >;
         };

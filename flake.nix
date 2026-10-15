@@ -43,7 +43,7 @@
           shield = "apiaster_wired raw_hid_adapter";
           enableZmkStudio = true;
 
-          zephyrDepsHash = "sha256-dJ6ajbQIiMW/Zss3zuskCdnhbLStQBrRxNysb0CCF7c=";
+          zephyrDepsHash = "sha256-hWFit09La/TGKpsHOOAdYUydv5xBqZZUpo5KAX8nUUY=";
 
           meta = {
             description = "ZMK firmware";

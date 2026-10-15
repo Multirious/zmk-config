@@ -1,0 +1,2 @@
+nix run .#flashApiaster /run/media/peach/RPI-RP2
+
